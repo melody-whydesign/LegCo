@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong Kong LegCo Bookend Showcase</title>
+    <title>Hong Kong LegCo Bookend - Interactive Showcase</title>
     <style>
         body {
             margin: 0;
@@ -38,24 +38,104 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            cursor: ew-resize;
+            user-select: none;
         }
 
         #bookend-image {
             width: 100%;
             height: auto;
             border-radius: 6px;
+            pointer-events: none;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #b5ada3;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
     <h1>Legislative Council Bookend</h1>
-    <p>3D Print Design Concept</p>
+    <p>Interactive Design Perspectives</p>
 
     <div id="viewer-container">
-        <!-- Make sure your image name matches exactly what is inside the src="" below -->
-        <img id="bookend-image" src="bookend.png" alt="Bookend Perspective">
+        <!-- Initial display frame -->
+        <img id="bookend-image" src="images/frame1.png" alt="Bookend Perspective">
+        <div class="hint">← Drag your mouse or swipe to switch angles →</div>
     </div>
 
+    <script>
+        // CONFIGURATION: Adjust these variables based on your folder files
+        const totalFrames = 3; // Change this if you uploaded more than 3 frames
+        const imageFolder = "images/";
+        const imagePrefix = "frame";
+        const imageExtension = ".png"; // Change to ".jpg" if your files are JPEGs
+
+        // Generate the sequence list
+        const images = [];
+        for (let i = 1; i <= totalFrames; i++) {
+            images.push(`${imageFolder}${imagePrefix}${i}${imageExtension}`);
+        }
+
+        const container = document.getElementById('viewer-container');
+        const viewImage = document.getElementById('bookend-image');
+        
+        let isDragging = false;
+        let startX = 0;
+        let currentFrameIndex = 0;
+        const dragSensitivity = 60; // Higher number = slower, smoother switching
+
+        // Preload files into browser cache to ensure fluid switching
+        images.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Mouse Handlers
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            trackMovement(e.clientX);
+        });
+
+        // Touch Handlers for Mobile Screens
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            trackMovement(e.touches[0].clientX);
+        });
+
+        function trackMovement(currentX) {
+            const deltaX = currentX - startX;
+            let frameOffset = Math.floor(deltaX / dragSensitivity);
+            
+            if (frameOffset !== 0) {
+                // Loop the frames index seamlessly forward or backward
+                currentFrameIndex = (currentFrameIndex - frameOffset + totalFrames) % totalFrames;
+                viewImage.src = images[currentFrameIndex];
+                startX = currentX; // Anchor to new drag point
+            }
+        }
+    </script>
 </body>
 </html>
