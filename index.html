@@ -3,47 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong Kong LegCo Bookend - 3D Showcase</title>
+    <title>Hong Kong LegCo Bookend - 3D Showcases</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             background-color: #f4f1ea;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
+            box-sizing: border-box;
         }
 
         h1 {
             color: #4a3e3d;
             margin-bottom: 5px;
             font-weight: 400;
+            text-align: center;
         }
 
         p {
             color: #8c8275;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        /* Container that sizes and centers your 3D iframe smoothly */
-        #viewer-container {
-            width: 90%;
-            max-width: 900px;
-            height: 600px;
+        /* Flexbox wrapper to lay out both viewers cleanly side-by-side or stacked */
+        .showcase-grid {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+            justify-content: center;
+            flex-wrap: wrap; /* Automatically drops to next line on smaller screens */
+        }
+
+        /* Clean card wrapper for each model design option */
+        .model-card {
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
-            overflow: hidden;
+            flex: 1;
+            min-width: 320px; /* Ensures panels don't get too squished */
+            max-width: 650px;
+            text-align: center;
         }
 
-        /* Forces your embed code to fit the clean website container perfectly */
-        #viewer-container iframe {
+        .model-title {
+            font-size: 16px;
+            color: #5c504f;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Container that forces the SupaVoxel iframe to stay perfectly responsive */
+        .viewer-container {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .viewer-container iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -53,13 +80,26 @@
 </head>
 <body>
 
-    <h1>Legislative Council Bookend</h1>
-    <p>Interactive 3D Model Viewer</p>
+    <h1>Legislative Council Bookend Designs</h1>
+    <p>Interactive 3D Model Viewers</p>
 
-    <div id="viewer-container">
+    <div class="showcase-grid">
         
-        <!-- Your SupaVoxel Embed Code -->
-        <iframe src="https://supavoxel.com/embed/cmrf5wimu0pqm8rmeru248asg" width="600" height="400" style="border:none;" allowfullscreen></iframe>
+        <!-- DESIGN ONE: DETAILED MOCKUP -->
+        <div class="model-card">
+            <div class="model-title">Option 1: Detailed Architectural Mockup</div>
+            <div class="viewer-container">
+                <iframe src="https://supavoxel.com/embed/cmrf5wimu0pqm8rmeru248asg" width="600" height="400" style="border:none;" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- DESIGN TWO: SIMPLIFIED VERSION -->
+        <div class="model-card">
+            <div class="model-title">Option 2: Simplified Matte Mockup</div>
+            <div class="viewer-container">
+                <iframe src="https://supavoxel.com/embed/cmrf6csbt0psm8rmel2zdnw4x" width="800" height="600" style="border:none;" allowfullscreen></iframe>
+            </div>
+        </div>
 
     </div>
 
