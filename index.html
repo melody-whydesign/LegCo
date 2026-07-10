@@ -31,7 +31,7 @@
             text-align: center;
         }
 
-        /* Flexbox wrapper to lay out both viewers cleanly side-by-side or stacked */
+        /* Wrapper to lay out both viewers side-by-side or stacked on mobile */
         .showcase-grid {
             display: flex;
             flex-direction: row;
@@ -39,10 +39,10 @@
             width: 100%;
             max-width: 1400px;
             justify-content: center;
-            flex-wrap: wrap; /* Automatically drops to next line on smaller screens */
+            flex-wrap: wrap;
         }
 
-        /* Clean card wrapper for each model design option */
+        /* Card container for each design variant */
         .model-card {
             background: #ffffff;
             border-radius: 12px;
@@ -50,7 +50,7 @@
             padding: 15px;
             box-sizing: border-box;
             flex: 1;
-            min-width: 320px; /* Ensures panels don't get too squished */
+            min-width: 320px;
             max-width: 650px;
             text-align: center;
         }
@@ -62,7 +62,7 @@
             font-weight: 500;
         }
 
-        /* Container that forces the SupaVoxel iframe to stay perfectly responsive */
+        /* Container keeping the dynamic iframes perfectly responsive */
         .viewer-container {
             width: 100%;
             height: 450px;
@@ -93,11 +93,11 @@
             </div>
         </div>
 
-        <!-- DESIGN TWO: SIMPLIFIED VERSION -->
+        <!-- DESIGN TWO: NEW SIMPLIFIED VERSION -->
         <div class="model-card">
             <div class="model-title">Option 2: Simplified Matte Mockup</div>
             <div class="viewer-container">
-                <iframe src="https://supavoxel.com/embed/cmrf6csbt0psm8rmel2zdnw4x" width="800" height="600" style="border:none;" allowfullscreen></iframe>
+                <iframe src="https://supavoxel.com/embed/cmrf6csbt0psm8rmel2zdnw4x" width="600" height="400" style="border:none;" allowfullscreen></iframe>
             </div>
         </div>
 
