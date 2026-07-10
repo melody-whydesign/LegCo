@@ -31,7 +31,6 @@
             text-align: center;
         }
 
-        /* Wrapper to lay out both viewers side-by-side or stacked on mobile */
         .showcase-grid {
             display: flex;
             flex-direction: row;
@@ -42,7 +41,6 @@
             flex-wrap: wrap;
         }
 
-        /* Card container for each design variant */
         .model-card {
             background: #ffffff;
             border-radius: 12px;
@@ -53,6 +51,8 @@
             min-width: 320px;
             max-width: 650px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .model-title {
@@ -62,12 +62,16 @@
             font-weight: 500;
         }
 
-        /* Container keeping the dynamic iframes perfectly responsive */
         .viewer-container {
             width: 100%;
             height: 450px;
             overflow: hidden;
             border-radius: 6px;
+            background-color: #faf9f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .viewer-container iframe {
@@ -75,6 +79,34 @@
             height: 100%;
             border: none;
             border-radius: 6px;
+        }
+
+        .fallback-text {
+            color: #8c8275;
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            line-height: 1.5;
+        }
+
+        .view-button {
+            display: inline-block;
+            background-color: #8c8275;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .view-button:hover {
+            background-color: #4a3e3d;
+        }
+        
+        .view-button:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
@@ -97,7 +129,10 @@
         <div class="model-card">
             <div class="model-title">Option 2: Simplified Matte Mockup</div>
             <div class="viewer-container">
-                <iframe src="https://supavoxel.com/embed/cmrf6csbt0psm8rmel2zdnw4x" width="600" height="400" style="border:none;" allowfullscreen></iframe>
+                <div class="fallback-text">
+                    Your simplified, cream-colored mockup is ready to view! Click below to open it in a clean browser window where you can smoothly spin, pan, and rotate the model.
+                </div>
+                <a href="https://supavoxel.com/embed/cmrf6csbt0psm8rmel2zdnw4x" target="_blank" class="view-button">✨ Open Interactive 3D View</a>
             </div>
         </div>
 
