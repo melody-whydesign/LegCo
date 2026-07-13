@@ -3,106 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong Kong LegCo Bookend - 3D Showcase</title>
-    <!-- Import Google's <model-viewer> engine -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <title>Hong Kong Legislative Council Bookend 3D Preview</title>
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f1ea;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            box-sizing: border-box;
         }
 
         h1 {
-            color: #4a3e3d;
-            margin-bottom: 5px;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        p {
-            color: #8c8275;
-            margin-top: 0;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .showcase-grid {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-            width: 100%;
-            max-width: 900px;
-            justify-content: center;
-            box-sizing: border-box;
-        }
-
-        .model-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            padding: 20px;
-            box-sizing: border-box;
-            flex: 1;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .model-title {
-            font-size: 18px;
-            color: #5c504f;
+            color: #333;
             margin-bottom: 20px;
-            font-weight: 500;
         }
 
-        .viewer-container {
-            width: 100%;
-            height: 550px;
-            overflow: hidden;
-            border-radius: 6px;
-            background-color: #faf9f6;
-        }
-
+        /* Style the 3D viewer window */
         model-viewer {
-            width: 100%;
-            height: 100%;
-            border-radius: 6px;
+            width: 80%;
+            max-width: 800px;
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             --poster-color: transparent;
         }
+
+        .instructions {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
     </style>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
 
-    <h1>Legislative Council Bookend Design</h1>
-    <p>Interactive 3D Model Viewer</p>
+    <h1>Hong Kong Legislative Council Bookend</h1>
 
-    <div class="showcase-grid">
-        
-        <div class="model-card">
-            <div class="model-title">Cream 3D Printed Model Preview</div>
-            <div class="viewer-container">
-                <!-- Using the local relative path so the browser doesn't block it -->
-                <model-viewer 
-                    src="model.glb" 
-                    alt="Hong Kong LegCo Bookend 3D Model" 
-                    camera-controls 
-                    auto-rotate 
-                    interaction-prompt="none"
-                    touch-action="pan-y"
-                    shadow-intensity="1"
-                    shadow-softness="0.5">
-                </model-viewer>
-            </div>
-        </div>
+    <model-viewer 
+        src="hk-legco-bookend.glb" 
+        alt="A cream-colored 3D model of the Hong Kong Legislative Council building bookend" 
+        auto-rotate 
+        camera-controls 
+        shadow-intensity="1" 
+        exposure="1"
+        interaction-prompt="auto">
+    </model-viewer>
 
-    </div>
+    <p class="instructions">🖱️ Left-click + drag to rotate | 📜 Scroll to zoom | ⚙️ Right-click + drag to pan</p>
 
 </body>
 </html>
