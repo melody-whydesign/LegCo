@@ -8,8 +8,8 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -18,25 +18,38 @@
         }
 
         h1 {
-            color: #333;
-            margin-bottom: 20px;
+            color: #1d1d1f;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-align: center;
         }
 
-        /* Style the 3D viewer window */
+        p.subtitle {
+            color: #86868b;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* 3D Viewer Container styling */
         model-viewer {
-            width: 80%;
+            width: 90%;
             max-width: 800px;
             height: 500px;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --poster-color: transparent;
         }
 
         .instructions {
-            margin-top: 15px;
-            color: #666;
+            margin-top: 20px;
+            color: #6e6e73;
             font-size: 0.9rem;
+            background: #e8e8ed;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-align: center;
         }
     </style>
 
@@ -44,10 +57,11 @@
 </head>
 <body>
 
-    <h1>Hong Kong Legislative Council Bookend</h1>
+    <h1>Hong Kong Legislative Council Building</h1>
+    <p class="subtitle">Cream Colour Bookend 3D Preview</p>
 
     <model-viewer 
-        src="hk-legco-bookend.glb" 
+        src="./bookend.glb" 
         alt="A cream-colored 3D model of the Hong Kong Legislative Council building bookend" 
         auto-rotate 
         camera-controls 
