@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hong Kong LegCo Bookend - 3D Showcase</title>
-    <!-- Import Google's <model-viewer> library -->
+    <!-- Import Google's <model-viewer> engine -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <style>
         body {
@@ -85,12 +85,12 @@
 
     <div class="showcase-grid">
         
-        <!-- SINGLE FINAL GLB VIEW WITH DIRECT LINK -->
         <div class="model-card">
             <div class="model-title">Cream 3D Printed Model Preview</div>
             <div class="viewer-container">
+                <!-- Using the local relative path so the browser doesn't block it -->
                 <model-viewer 
-                    src="https://raw.githubusercontent.com/melody-whydesign/LegCo/main/model.glb" 
+                    src="model.glb" 
                     alt="Hong Kong LegCo Bookend 3D Model" 
                     camera-controls 
                     auto-rotate 
