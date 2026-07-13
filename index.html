@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong Kong LegCo Bookend - 3D Showcases</title>
+    <title>Hong Kong LegCo Bookend - 3D Showcase</title>
+    <!-- Import Google's <model-viewer> library -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -36,69 +38,67 @@
             flex-direction: row;
             gap: 30px;
             width: 100%;
-            max-width: 1400px;
+            max-width: 900px; /* Adjusted to look clean with a single centerpiece card */
             justify-content: center;
-            flex-wrap: wrap;
+            box-sizing: border-box;
         }
 
         .model-card {
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            padding: 15px;
+            padding: 20px;
             box-sizing: border-box;
             flex: 1;
-            min-width: 320px;
-            max-width: 650px;
             text-align: center;
             display: flex;
             flex-direction: column;
         }
 
         .model-title {
-            font-size: 16px;
+            font-size: 18px;
             color: #5c504f;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: 500;
         }
 
         .viewer-container {
             width: 100%;
-            height: 450px;
+            height: 550px; /* Slightly taller for a more impactful view */
             overflow: hidden;
             border-radius: 6px;
             background-color: #faf9f6;
         }
 
-        .viewer-container iframe {
+        /* Styling for the interactive model viewer */
+        model-viewer {
             width: 100%;
             height: 100%;
-            border: none;
             border-radius: 6px;
+            --poster-color: transparent;
         }
     </style>
 </head>
 <body>
 
-    <h1>Legislative Council Bookend Designs</h1>
-    <p>Interactive 3D Model Viewers</p>
+    <h1>Legislative Council Bookend Design</h1>
+    <p>Interactive 3D Model Viewer</p>
 
     <div class="showcase-grid">
         
-        <!-- DESIGN ONE: DETAILED MOCKUP -->
+        <!-- SINGLE FINAL GLB VIEW -->
         <div class="model-card">
-            <div class="model-title">Option 1: Detailed Architectural Mockup</div>
+            <div class="model-title">Cream 3D Printed Model Preview</div>
             <div class="viewer-container">
-                <iframe src="https://supavoxel.com/embed/cmrf5wimu0pqm8rmeru248asg" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- DESIGN TWO: SIMPLIFIED VERSION -->
-        <div class="model-card">
-            <div class="model-title">Option 2: Simplified Matte Mockup</div>
-            <div class="viewer-container">
-                <!-- Sandbox and security rules are added below to force SupaVoxel to bypass the load restriction natively -->
-                <iframe src="https://supavoxel.com/embed/cmrf6csbt0psm8rmel2zdnw4x" sandbox="allow-scripts allow-same-origin allow-popups" allowfullscreen></iframe>
+                <model-viewer 
+                    src="model.glb" 
+                    alt="Hong Kong LegCo Bookend 3D Model" 
+                    camera-controls 
+                    auto-rotate 
+                    touch-action="pan-y"
+                    shadow-intensity="1"
+                    shadow-softness="0.5">
+                </model-viewer>
             </div>
         </div>
 
