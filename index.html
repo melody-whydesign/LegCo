@@ -38,7 +38,7 @@
             flex-direction: row;
             gap: 30px;
             width: 100%;
-            max-width: 900px; /* Adjusted to look clean with a single centerpiece card */
+            max-width: 900px;
             justify-content: center;
             box-sizing: border-box;
         }
@@ -64,13 +64,12 @@
 
         .viewer-container {
             width: 100%;
-            height: 550px; /* Slightly taller for a more impactful view */
+            height: 550px;
             overflow: hidden;
             border-radius: 6px;
             background-color: #faf9f6;
         }
 
-        /* Styling for the interactive model viewer */
         model-viewer {
             width: 100%;
             height: 100%;
@@ -86,19 +85,20 @@
 
     <div class="showcase-grid">
         
-        <!-- SINGLE FINAL GLB VIEW -->
+        <!-- SINGLE FINAL GLB VIEW WITH DIRECT LINK -->
         <div class="model-card">
             <div class="model-title">Cream 3D Printed Model Preview</div>
             <div class="viewer-container">
-<model-viewer 
-    src="https://raw.githubusercontent.com/melody-whydesign/LegCo/main/model.glb" 
-    alt="Hong Kong LegCo Bookend 3D Model" 
-    camera-controls 
-    auto-rotate 
-    touch-action="pan-y"
-    shadow-intensity="1"
-    shadow-softness="0.5">
-</model-viewer>
+                <model-viewer 
+                    src="https://raw.githubusercontent.com/melody-whydesign/LegCo/main/model.glb" 
+                    alt="Hong Kong LegCo Bookend 3D Model" 
+                    camera-controls 
+                    auto-rotate 
+                    interaction-prompt="none"
+                    touch-action="pan-y"
+                    shadow-intensity="1"
+                    shadow-softness="0.5">
+                </model-viewer>
             </div>
         </div>
 
